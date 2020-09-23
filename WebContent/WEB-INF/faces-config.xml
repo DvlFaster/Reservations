@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>reservation.LoginBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>registration</display-name>
+		<from-view-id>/registration.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>goClientLogin</from-outcome>
+			<to-view-id>/client.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registration</display-name>
+		<from-view-id>/registration.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>goAdminLogin</from-outcome>
+			<to-view-id>/restaurateur.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>client</display-name>
+		<from-view-id>/client.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>LoginSuccess</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>restaurateur</display-name>
+		<from-view-id>/restaurateur.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>LoginSuccess</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>client</display-name>
+		<from-view-id>/client.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/client.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>restaurateur</display-name>
+		<from-view-id>/restaurateur.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/restaurateur.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>loginSuccessRealUser</from-outcome>
+			<to-view-id>/profil.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>loginError</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
